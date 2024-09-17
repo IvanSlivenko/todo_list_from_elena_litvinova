@@ -1,0 +1,21 @@
+https://youtu.be/Z0rxniw2nBc
+
+$ npm create vite@latest
+
+ npm install
+ npm run dev
+
+ http://localhost:5173/
+
+ npm add -D sass
+
+ npm i zustand
+
+
+
+
+----------------------------------
+
+
+00 : 12 : 01
+
