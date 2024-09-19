@@ -12,28 +12,49 @@ interface Task {
 interface ToDostore {
     tasks: Task[];
     createTask: (title: string) => void;
-    updaTeTask: (id: string, title: string) => void;
+    updateTask: (id: string, title: string) => void;
     removeTask: (id: string) => void;
 
 }
 
 export const useToDoStore = create<ToDostore>((set, get) => ({
     tasks: [
-        {
-            id: 'werqwtewrt',
-            title: 'ghgjdj',
-            createdAt: 4545656
-        },
+        // {
+        // id: 'test id',
+        // title: 'Default task',
+        // createdAt: 123456
+        // },
     ],
-    createTask: (title: string)=>{
+    createTask: (title) => {
         const { tasks }  = get();
+        
         const newTask = {
             id: generateId(),
-            
+            title,
+            createdAt: Date.now(),
         }
 
+        set({
+            tasks: [newTask].concat(tasks),
+        })
     },
-    updaTeTask: (id: string, title: string) => {},
-    removeTask: (id: string) => {},
+    updateTask: (id: string, title: string) => {
+        const { tasks } = get();
+        set({
+            tasks: tasks.map((task)=>({
+                ...task,
+                title: task.id === id ? title : task.title,
+
+
+            }))
+        });
+
+    },
+    removeTask: (id: string) => {
+        const { tasks } = get();
+        set({
+            tasks: tasks.filter((task)=> task.id !== id )
+        });
+    },
 
 }))
