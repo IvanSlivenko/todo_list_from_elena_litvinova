@@ -12,10 +12,13 @@ $ npm create vite@latest
  npm i zustand
 
 
+     // "zustand": "^5.0.0-rc.2"
+
+
 
 
 ----------------------------------
 
 
-01 : 20 : 32
+01 : 47 : 44
 
